@@ -892,21 +892,31 @@
         </div>
       </div>
 
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form"
+            action="https://formsubmit.co/adhamsaber2004@gmail.com"
+            method="POST">
+
+        <input type="hidden" name="_subject" value="New freelance inquiry from your portfolio">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
         <div class="form-row">
           <label for="cf-name">name</label>
-          <input type="text" id="cf-name" required>
+          <input type="text" id="cf-name" name="name" required>
         </div>
+
         <div class="form-row">
           <label for="cf-email">your email</label>
-          <input type="email" id="cf-email" required>
+          <input type="email" id="cf-email" name="email" required>
         </div>
+
         <div class="form-row">
           <label for="cf-message">message</label>
-          <textarea id="cf-message" required></textarea>
+          <textarea id="cf-message" name="message" required></textarea>
         </div>
+
         <button type="submit" class="btn btn-primary form-submit">Send message</button>
-        <p class="form-note">Opens your email app, addressed to adhamsaber2004@gmail.com</p>
+        <p class="form-note">Your message will be sent directly to adhamsaber2004@gmail.com</p>
       </form>
     </div>
   </div>
@@ -982,16 +992,8 @@
     typeNext();
   }
 
-  // Contact form -> mailto
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('cf-name').value;
-    const email = document.getElementById('cf-email').value;
-    const message = document.getElementById('cf-message').value;
-    const subject = encodeURIComponent('Freelance inquiry from ' + name);
-    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-    window.location.href = `mailto:adhamsaber2004@gmail.com?subject=${subject}&body=${body}`;
-  });
+  // Contact form is submitted directly to FormSubmit.
+  // No mail app (Chrome, Edge, Outlook, etc.) is required.
 </script>
 
 </body>
